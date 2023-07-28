@@ -27,11 +27,14 @@ public static void main(String[] args) {
 	}
 	*/
 	
-	list.stream().filter(t->t.startsWith("s")).forEach(t->System.out.println(t));
+	//list.stream().filter(t->t.startsWith("s")).forEach(t->System.out.println(t));
+	list.stream().filter(s->s.startsWith("a")).forEach(System.out::println);
 	System.out.println("**********************************************");
-	list.stream().sorted().forEach(t->System.out.println(t));
+	//list.stream().sorted().forEach(t->System.out.println(t));
+	list.stream().sorted(Comparator.reverseOrder()).forEach(t->System.out.println(t));
 	System.out.println("**********************************************");
-	list.stream().sorted(Comparator.reverseOrder()).forEach(System.out::println);
+	//list.stream().sorted(Comparator.reverseOrder()).forEach(System.out::println);
+	list.stream().sorted().forEach(System.out::println);
 	System.out.println("**********************************************");
 	Collections.sort(list);
 	System.out.println(list);
@@ -44,9 +47,12 @@ public static void main(String[] args) {
 	m.put(4, "siddhu");
 	m.put(5, "akshay");
 	
-	m.entrySet().stream().filter(t->t.getKey()%2==0).forEach(t->System.out.println(t));
+	//m.entrySet().stream().filter(t->t.getKey()%2==0).forEach(t->System.out.println(t));
+	m.entrySet().stream().filter(t->t.getKey()%2!=0).forEach(System.out::println);
 	
-	m.entrySet().stream().sorted(Map.Entry.comparingByKey()).forEach(System.out::println);
+	m.entrySet().stream().sorted(Map.Entry.comparingByValue()).forEach(System.out::println);
+	
+	//m.entrySet().stream().sorted(Map.Entry.comparingByKey()).forEach(System.out::println);
 	System.out.println("---------------------------------------");
 	m.entrySet().stream().sorted(Map.Entry.comparingByValue()).forEach(System.out::println);
 }
