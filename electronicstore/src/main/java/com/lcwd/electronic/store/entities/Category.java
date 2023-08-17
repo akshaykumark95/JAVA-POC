@@ -33,6 +33,8 @@ public class Category {
 	@Column(name="category_description", length = 500, nullable = false)
 	private String description;
 	private String coverImage;
-	
+	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Product> products=new ArrayList<>();
+
 
 }
